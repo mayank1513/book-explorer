@@ -4,12 +4,12 @@
     "KE5Ck2RObVyXOFhFPSn_j": {
       "id": "KE5Ck2RObVyXOFhFPSn_j",
       "description": "Implement a search input field where users can enter their search query\n- Use debouncing\n",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "ymRl7POhBRpgPthS9JvxW": {
       "id": "ymRl7POhBRpgPthS9JvxW",
       "description": "Display the search results as a list of books, showing at least \n- the book title, \n- author(s), and \n- cover image.",
-      "columnId": "column-todo"
+      "columnId": "column-doing"
     },
     "-ECAvKYpZXbESU2d3hX3p": {
       "id": "-ECAvKYpZXbESU2d3hX3p",
@@ -62,7 +62,6 @@
       "title": "To do",
       "tasksIds": [
         "wxFguBhN5Hg5pSRJp7w3m",
-        "ymRl7POhBRpgPthS9JvxW",
         "-ECAvKYpZXbESU2d3hX3p",
         "PQUbcBnveN6Sm_yhd2La9"
       ]
@@ -71,13 +70,14 @@
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "KE5Ck2RObVyXOFhFPSn_j"
+        "ymRl7POhBRpgPthS9JvxW"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "KE5Ck2RObVyXOFhFPSn_j",
         "GL2rHDE-R-9wdQPYNJdjj"
       ]
     }

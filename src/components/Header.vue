@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { useBooksStore } from "../store";
 import LoaderLine from "./LoaderLine.vue";
 import { FILTERS } from "../constants";
+import { FilterType } from "../types";
 
 const filtersVisible = ref(false);
 const bookStore = useBooksStore();
@@ -12,22 +13,22 @@ const bookStore = useBooksStore();
     <input type="text" v-model="bookStore.query" @input="bookStore.loadBooks" />
     <strong @click="filtersVisible = !filtersVisible">⚙</strong>
     <div class="filters" v-if="filtersVisible">
-      Search In:
       <label v-for="filter in FILTERS" :for="filter">
+        {{ filter.replace(/^in/, "").toUpperCase() }}:
         <input
-          type="checkbox"
+          type="text"
           :id="filter"
-          :value="filter"
-          v-model="bookStore.filters"
+          :key="filter"
+          v-model="bookStore[filter as FilterType]"
+          @input="bookStore.loadBooks"
         />
-        {{ filter.replace(/^in/, "").toUpperCase() }}
       </label>
     </div>
     <LoaderLine v-if="bookStore.loading" />
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   width: 100%;
   padding: 20px;
@@ -57,8 +58,14 @@ input {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 label {
   display: flex;
+  align-items: center;
+  input {
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
 }
 </style>

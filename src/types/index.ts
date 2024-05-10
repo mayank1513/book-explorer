@@ -16,3 +16,8 @@ export interface APIDataInterface {
     };
   }[];
 }
+
+export type FilterType = "intitle" | "inauthor" | "inpublisher" | "subject";
+// | "isbn"
+// | "lccn"
+// | "oclc";

@@ -4,7 +4,7 @@ export const FILTERS = [
   "inauthor",
   "inpublisher",
   "subject",
-  "isbn",
-  "lccn",
-  "oclc",
+  // "isbn",
+  // "lccn",
+  // "oclc",
 ];

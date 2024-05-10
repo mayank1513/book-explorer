@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { APIDataInterface, BookInterface } from "../types";
 import debounce from "lodash/debounce";
-import { API_BASE_URL } from "../constants";
+import { API_BASE_URL, FILTERS } from "../constants";
 import { apiDataToBooks } from "../utils";
 
 export const useBooksStore = defineStore("book-store", () => {
@@ -13,12 +13,31 @@ export const useBooksStore = defineStore("book-store", () => {
   const selectedBook = ref<BookInterface | undefined>();
   const loading = ref(true);
   const filters = ref<string[]>([]);
+  const intitle = ref("");
+  const inauthor = ref("");
+  const inpublisher = ref("");
+  const subject = ref("");
 
   async function retriveBooks() {
+    const combinedQueryString = [
+      query.value,
+      intitle.value ? `intitle:${intitle.value}` : "",
+      inauthor.value ? `inauthor:${inauthor.value}` : "",
+      inpublisher.value ? `inpublisher:${inpublisher.value}` : "",
+      subject.value ? `subject:${subject.value}` : "",
+    ]
+      .filter(Boolean)
+      .join("+");
+
+    if (!combinedQueryString) {
+      totalItems.value = 0;
+      books.value = [];
+    }
+
     const data: APIDataInterface = await fetch(
-      `${API_BASE_URL}?q=${encodeURI(
-        query.value
-      )}&startIndex=${startIndex}&projection=lite`
+      `${API_BASE_URL}?q=${encodeURI(combinedQueryString)}&startIndex=${
+        startIndex.value
+      }&projection=lite`
     ).then((res) => res.json());
     totalItems.value = data.totalItems;
     return apiDataToBooks(data);
@@ -26,10 +45,6 @@ export const useBooksStore = defineStore("book-store", () => {
 
   const loadBooks = debounce(async () => {
     startIndex.value = 0;
-    if (!query.value) {
-      totalItems.value = 0;
-      books.value = [];
-    }
     // todo -- may be clean query to avoid &/? etc. if it interfers with filtering etc.
     loading.value = true;
     books.value = await retriveBooks();
@@ -51,5 +66,9 @@ export const useBooksStore = defineStore("book-store", () => {
     loading,
     loadBooks,
     loadMore,
+    inauthor,
+    intitle,
+    inpublisher,
+    subject,
   };
 });

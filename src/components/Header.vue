@@ -56,16 +56,20 @@ input {
   width: 100%;
   display: flex;
   gap: 20px;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 label {
   display: flex;
   align-items: center;
+  width: 80%;
+  justify-content: space-between;
   input {
     padding: 5px 10px;
     margin-left: 10px;
+    width: calc(100% - 110px);
+    margin-right: 15px;
   }
 }
 </style>

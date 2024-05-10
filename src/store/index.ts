@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { APIDataInterface, BookInterface } from "../types";
 import debounce from "lodash/debounce";
-import { API_BASE_URL, FILTERS } from "../constants";
+import { API_BASE_URL } from "../constants";
 import { apiDataToBooks } from "../utils";
 
 export const useBooksStore = defineStore("book-store", () => {

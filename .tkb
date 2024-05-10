@@ -34,12 +34,12 @@
     "UhLte5aM3RwuUmKMijwCQ": {
       "id": "UhLte5aM3RwuUmKMijwCQ",
       "description": "Add filtering options to allow users to refine their search results by category, author, or other criteria.",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "jxXKbkh1u-XLCrkMxKf_y": {
       "id": "jxXKbkh1u-XLCrkMxKf_y",
       "description": "Add unit tests to ensure the reliability and functionality of your code.\n",
-      "columnId": "column-vLZpQv3nUaXryerHDKVOV"
+      "columnId": "column-doing"
     },
     "wxFguBhN5Hg5pSRJp7w3m": {
       "id": "wxFguBhN5Hg5pSRJp7w3m",
@@ -66,21 +66,20 @@
     {
       "id": "column-vLZpQv3nUaXryerHDKVOV",
       "title": "Bonus",
-      "tasksIds": [
-        "jxXKbkh1u-XLCrkMxKf_y"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "UhLte5aM3RwuUmKMijwCQ"
+        "jxXKbkh1u-XLCrkMxKf_y"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "UhLte5aM3RwuUmKMijwCQ",
         "wxFguBhN5Hg5pSRJp7w3m",
         "3K204UJMqBBB0ytriXtfG",
         "xivzj7ueoA_ydKmxG1hn6",

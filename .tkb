@@ -50,6 +50,11 @@
       "id": "GG7AsE_XV7fObCBPGpbNe",
       "description": "Add syles",
       "columnId": "column-done"
+    },
+    "3K204UJMqBBB0ytriXtfG": {
+      "id": "3K204UJMqBBB0ytriXtfG",
+      "description": "Add pinia",
+      "columnId": "column-doing"
     }
   },
   "columns": [
@@ -70,6 +75,7 @@
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
+        "3K204UJMqBBB0ytriXtfG",
         "wxFguBhN5Hg5pSRJp7w3m"
       ]
     },

@@ -49,7 +49,11 @@ const handleInput = debounce(async () => {
         @click="selectedBook = book"
       />
     </ul>
-    <BookDisplay v-if="selectedBook" v-bind="selectedBook" />
+    <BookDisplay
+      v-if="selectedBook"
+      v-bind="selectedBook"
+      @close="selectedBook = undefined"
+    />
   </main>
 </template>
 <style lang="scss" scoped>
@@ -71,6 +75,7 @@ input {
 main {
   display: flex;
   padding: 0 20px;
+  justify-content: center;
 }
 .books {
   list-style-type: none;

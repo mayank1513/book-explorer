@@ -11,6 +11,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --bg-color: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -20,6 +25,12 @@ a {
 }
 a:hover {
   color: #535bf2;
+}
+
+html,
+body {
+  height: 100vh;
+  max-width: 100vw;
 }
 
 body {
@@ -60,6 +71,7 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+    --bg-color: #ffffff;
   }
   a:hover {
     color: #747bff;

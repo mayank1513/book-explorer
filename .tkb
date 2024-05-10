@@ -14,12 +14,12 @@
     "-ECAvKYpZXbESU2d3hX3p": {
       "id": "-ECAvKYpZXbESU2d3hX3p",
       "description": "Allow users to click on a book to view more details, \n- including the book's description and \n- additional information.\n",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "PQUbcBnveN6Sm_yhd2La9": {
       "id": "PQUbcBnveN6Sm_yhd2La9",
       "description": "Implement responsive design to ensure the application works well on both desktop and mobile devices",
-      "columnId": "column-todo"
+      "columnId": "column-doing"
     },
     "GL2rHDE-R-9wdQPYNJdjj": {
       "id": "GL2rHDE-R-9wdQPYNJdjj",
@@ -66,21 +66,21 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "wxFguBhN5Hg5pSRJp7w3m",
-        "PQUbcBnveN6Sm_yhd2La9"
+        "wxFguBhN5Hg5pSRJp7w3m"
       ]
     },
     {
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "-ECAvKYpZXbESU2d3hX3p"
+        "PQUbcBnveN6Sm_yhd2La9"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "-ECAvKYpZXbESU2d3hX3p",
         "GG7AsE_XV7fObCBPGpbNe",
         "ymRl7POhBRpgPthS9JvxW",
         "KE5Ck2RObVyXOFhFPSn_j",

@@ -30,7 +30,6 @@ const handleInput = debounce(async () => {
 // Use debounce to be on safer side, e.g., when user keeps srolling top and bottom quickly
 const loadMore = debounce(async () => {
   startIndex.value++;
-  loading.value = true;
   const data: APIDataInterface = await fetch(
     `${apiUrl}?q=${encodeURI(query.value)}&startIndex=${
       startIndex.value

@@ -29,7 +29,7 @@
     "xivzj7ueoA_ydKmxG1hn6": {
       "id": "xivzj7ueoA_ydKmxG1hn6",
       "description": "Implement pagination for the search results to improve performance and user experience.",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "UhLte5aM3RwuUmKMijwCQ": {
       "id": "UhLte5aM3RwuUmKMijwCQ",
@@ -70,7 +70,6 @@
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "xivzj7ueoA_ydKmxG1hn6",
         "wxFguBhN5Hg5pSRJp7w3m"
       ]
     },
@@ -78,6 +77,7 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "xivzj7ueoA_ydKmxG1hn6",
         "PQUbcBnveN6Sm_yhd2La9",
         "-ECAvKYpZXbESU2d3hX3p",
         "GG7AsE_XV7fObCBPGpbNe",

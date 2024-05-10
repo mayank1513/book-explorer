@@ -7,9 +7,11 @@ import { BookInterface } from "../types";
 const apiUrl = "https://www.googleapis.com/books/v1/volumes";
 const query = ref("");
 const books = ref<BookInterface[]>([]);
+const loading = ref(true);
 /** Can rename if a more meaningful name is possible */
 const handleInput = debounce(async () => {
   // todo -- may be clean query to avoid &/? etc. if it interfers with filtering etc.
+  loading.value = true;
   const data: {
     items: {
       volumeInfo: {
@@ -24,13 +26,15 @@ const handleInput = debounce(async () => {
   books.value = data.items.map((item) => ({
     title: item.volumeInfo.title,
     authors: item.volumeInfo.authors,
-    coverImage: item.volumeInfo.imageLinks?.thumbnail || "",
+    coverImage: item.volumeInfo.imageLinks?.thumbnail,
   }));
+  loading.value = false;
 }, 300);
 </script>
 <template>
   <header>
     <input type="text" v-model="query" @input="handleInput" />
+    <div class="loader" v-if="loading"></div>
   </header>
   <ul class="books">
     <Book
@@ -58,5 +62,33 @@ input {
 }
 .books {
   list-style-type: none;
+}
+.loader {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  filter: blur(4px);
+  background: linear-gradient(
+    to right,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  background-size: 200%;
+  animation: loading 1s infinite linear alternate;
+}
+@keyframes loading {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
 }
 </style>

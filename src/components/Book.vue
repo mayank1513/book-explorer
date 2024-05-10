@@ -4,7 +4,7 @@ defineProps<BookInterface>();
 </script>
 <template>
   <li class="book">
-    <img :src="coverImage" alt="Cover Image of the Book" />
+    <img :src="coverImage ?? '/vite.svg'" alt="Cover Image" />
     <div>
       <h2>{{ title }}</h2>
       <p>
@@ -30,6 +30,8 @@ defineProps<BookInterface>();
   }
   img {
     height: 100%;
+    max-width: 67px;
+    object-fit: contain;
   }
   &:hover {
     box-shadow: 0 0 5px red;

@@ -19,3 +19,9 @@ const bookStore = useBooksStore();
     />
   </ul>
 </template>
+<style scoped>
+ul {
+  max-width: 99%;
+  margin: auto;
+}
+</style>

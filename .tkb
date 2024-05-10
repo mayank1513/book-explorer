@@ -34,7 +34,7 @@
     "UhLte5aM3RwuUmKMijwCQ": {
       "id": "UhLte5aM3RwuUmKMijwCQ",
       "description": "Add filtering options to allow users to refine their search results by category, author, or other criteria.",
-      "columnId": "column-vLZpQv3nUaXryerHDKVOV"
+      "columnId": "column-doing"
     },
     "jxXKbkh1u-XLCrkMxKf_y": {
       "id": "jxXKbkh1u-XLCrkMxKf_y",
@@ -44,7 +44,7 @@
     "wxFguBhN5Hg5pSRJp7w3m": {
       "id": "wxFguBhN5Hg5pSRJp7w3m",
       "description": "Explore Google Books API (focus items below)\n- Query \n- pagination\n- Explore the data model returned by the API and the API parameters required",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "GG7AsE_XV7fObCBPGpbNe": {
       "id": "GG7AsE_XV7fObCBPGpbNe",
@@ -54,7 +54,7 @@
     "3K204UJMqBBB0ytriXtfG": {
       "id": "3K204UJMqBBB0ytriXtfG",
       "description": "Add pinia",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     }
   },
   "columns": [
@@ -67,7 +67,6 @@
       "id": "column-vLZpQv3nUaXryerHDKVOV",
       "title": "Bonus",
       "tasksIds": [
-        "UhLte5aM3RwuUmKMijwCQ",
         "jxXKbkh1u-XLCrkMxKf_y"
       ]
     },
@@ -75,14 +74,15 @@
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "3K204UJMqBBB0ytriXtfG",
-        "wxFguBhN5Hg5pSRJp7w3m"
+        "UhLte5aM3RwuUmKMijwCQ"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "wxFguBhN5Hg5pSRJp7w3m",
+        "3K204UJMqBBB0ytriXtfG",
         "xivzj7ueoA_ydKmxG1hn6",
         "PQUbcBnveN6Sm_yhd2La9",
         "-ECAvKYpZXbESU2d3hX3p",

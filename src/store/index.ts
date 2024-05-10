@@ -12,32 +12,39 @@ export const useBooksStore = defineStore("book-store", () => {
   const books = ref<BookInterface[]>([]);
   const selectedBook = ref<BookInterface | undefined>();
   const loading = ref(true);
+  const filters = ref<string[]>([]);
 
-  const loadBooks = debounce(async (e: Event) => {
-    query.value = encodeURI((e.target as HTMLInputElement).value);
+  async function retriveBooks() {
+    const data: APIDataInterface = await fetch(
+      `${API_BASE_URL}?q=${encodeURI(
+        query.value
+      )}&startIndex=${startIndex}&projection=lite`
+    ).then((res) => res.json());
+    totalItems.value = data.totalItems;
+    return apiDataToBooks(data);
+  }
+
+  const loadBooks = debounce(async () => {
     startIndex.value = 0;
+    if (!query.value) {
+      totalItems.value = 0;
+      books.value = [];
+    }
     // todo -- may be clean query to avoid &/? etc. if it interfers with filtering etc.
     loading.value = true;
-    const data: APIDataInterface = await fetch(
-      `${API_BASE_URL}?q=${query.value}&startIndex=0&projection=lite`
-    ).then((res) => res.json());
-    books.value = apiDataToBooks(data);
-    totalItems.value = data.totalItems;
+    books.value = await retriveBooks();
     loading.value = false;
   }, 300);
 
   // Use debounce to be on safer side, e.g., when user keeps srolling top and bottom quickly
   const loadMore = debounce(async () => {
     startIndex.value++;
-    const data: APIDataInterface = await fetch(
-      `${API_BASE_URL}?q=${encodeURI(query.value)}&startIndex=${
-        startIndex.value
-      }&projection=lite`
-    ).then((res) => res.json());
-    books.value = books.value.concat(apiDataToBooks(data));
+    books.value = books.value.concat(await retriveBooks());
   }, 300);
 
   return {
+    query,
+    filters,
     totalItems,
     books,
     selectedBook,

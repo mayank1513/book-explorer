@@ -3,12 +3,36 @@ import { BookInterface } from "../types";
 defineProps<BookInterface>();
 </script>
 <template>
-  <div class="book">
+  <li class="book">
     <img :src="coverImage" alt="Cover Image of the Book" />
-    <h2>{{ title }}</h2>
-    <ul>
-      <li v-for="author in authors" :key="author">{{ author }}</li>
-    </ul>
-  </div>
+    <div>
+      <h2>{{ title }}</h2>
+      <p>
+        <i>By {{ authors?.join(", ") }}</i>
+      </p>
+    </div>
+  </li>
 </template>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.book {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+  height: 100px;
+  text-align: justify;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 3px currentColor;
+  h2,
+  p {
+    margin: 0;
+  }
+  img {
+    height: 100%;
+  }
+  &:hover {
+    box-shadow: 0 0 5px red;
+  }
+}
+</style>

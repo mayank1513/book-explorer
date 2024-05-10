@@ -14,8 +14,8 @@ const handleInput = debounce(async () => {
     items: {
       volumeInfo: {
         title: string;
-        authors: string[];
-        imageLinks: { thumbnail: string };
+        authors?: string[];
+        imageLinks?: { thumbnail: string };
       };
     }[];
   } = await fetch(`${apiUrl}?q=${encodeURI(query.value)}`).then((res) =>
@@ -24,13 +24,15 @@ const handleInput = debounce(async () => {
   books.value = data.items.map((item) => ({
     title: item.volumeInfo.title,
     authors: item.volumeInfo.authors,
-    coverImage: item.volumeInfo.imageLinks.thumbnail,
+    coverImage: item.volumeInfo.imageLinks?.thumbnail || "",
   }));
 }, 300);
 </script>
 <template>
-  <input type="text" v-model="query" @input="handleInput" />
-  <ul>
+  <header>
+    <input type="text" v-model="query" @input="handleInput" />
+  </header>
+  <ul class="books">
     <Book
       v-for="(book, index) in books"
       v-bind="book"
@@ -38,4 +40,23 @@ const handleInput = debounce(async () => {
     />
   </ul>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+header {
+  width: 100%;
+  padding: 20px;
+  backdrop-filter: blur(3px);
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 5px currentColor;
+}
+input {
+  padding: 10px 20px;
+  width: 80%;
+  margin: auto;
+  display: block;
+  border-radius: 5px;
+}
+.books {
+  list-style-type: none;
+}
+</style>

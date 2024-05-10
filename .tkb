@@ -9,7 +9,7 @@
     "ymRl7POhBRpgPthS9JvxW": {
       "id": "ymRl7POhBRpgPthS9JvxW",
       "description": "Display the search results as a list of books, showing at least \n- the book title, \n- author(s), and \n- cover image.",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "-ECAvKYpZXbESU2d3hX3p": {
       "id": "-ECAvKYpZXbESU2d3hX3p",
@@ -45,6 +45,11 @@
       "id": "wxFguBhN5Hg5pSRJp7w3m",
       "description": "Explore Google Books API (focus items below)\n- Query \n- pagination\n- Explore the data model returned by the API and the API parameters required",
       "columnId": "column-todo"
+    },
+    "GG7AsE_XV7fObCBPGpbNe": {
+      "id": "GG7AsE_XV7fObCBPGpbNe",
+      "description": "Add syles",
+      "columnId": "column-doing"
     }
   },
   "columns": [
@@ -70,13 +75,14 @@
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "ymRl7POhBRpgPthS9JvxW"
+        "GG7AsE_XV7fObCBPGpbNe"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "ymRl7POhBRpgPthS9JvxW",
         "KE5Ck2RObVyXOFhFPSn_j",
         "GL2rHDE-R-9wdQPYNJdjj"
       ]

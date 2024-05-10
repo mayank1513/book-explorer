@@ -3,8 +3,8 @@
   "tasks": {
     "KE5Ck2RObVyXOFhFPSn_j": {
       "id": "KE5Ck2RObVyXOFhFPSn_j",
-      "description": "Implement a search input field where users can enter their search query",
-      "columnId": "column-todo"
+      "description": "Implement a search input field where users can enter their search query\n- Use debouncing\n",
+      "columnId": "column-doing"
     },
     "ymRl7POhBRpgPthS9JvxW": {
       "id": "ymRl7POhBRpgPthS9JvxW",
@@ -62,7 +62,6 @@
       "title": "To do",
       "tasksIds": [
         "wxFguBhN5Hg5pSRJp7w3m",
-        "KE5Ck2RObVyXOFhFPSn_j",
         "ymRl7POhBRpgPthS9JvxW",
         "-ECAvKYpZXbESU2d3hX3p",
         "PQUbcBnveN6Sm_yhd2La9"
@@ -71,7 +70,9 @@
     {
       "id": "column-doing",
       "title": "Doing",
-      "tasksIds": []
+      "tasksIds": [
+        "KE5Ck2RObVyXOFhFPSn_j"
+      ]
     },
     {
       "id": "column-done",

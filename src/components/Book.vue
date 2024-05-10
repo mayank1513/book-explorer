@@ -18,6 +18,7 @@ defineProps<BookInterface>();
   display: flex;
   gap: 20px;
   margin: 20px;
+  padding-right: 10px;
   height: 100px;
   text-align: justify;
   cursor: pointer;
@@ -30,8 +31,8 @@ defineProps<BookInterface>();
   }
   img {
     height: 100%;
-    max-width: 67px;
-    object-fit: contain;
+    width: 70px;
+    object-fit: cover;
   }
   &:hover {
     box-shadow: 0 0 5px red;

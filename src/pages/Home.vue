@@ -3,10 +3,12 @@ import Book from "../components/Book.vue";
 import { ref } from "vue";
 import debounce from "lodash/debounce";
 import { BookInterface } from "../types";
+import BookDisplay from "../components/BookDisplay.vue";
 
 const apiUrl = "https://www.googleapis.com/books/v1/volumes";
 const query = ref("");
 const books = ref<BookInterface[]>([]);
+const selectedBook = ref<BookInterface | undefined>();
 const loading = ref(true);
 /** Can rename if a more meaningful name is possible */
 const handleInput = debounce(async () => {
@@ -18,6 +20,7 @@ const handleInput = debounce(async () => {
         title: string;
         authors?: string[];
         imageLinks?: { thumbnail: string };
+        description: string;
       };
     }[];
   } = await fetch(`${apiUrl}?q=${encodeURI(query.value)}`).then((res) =>
@@ -27,6 +30,7 @@ const handleInput = debounce(async () => {
     title: item.volumeInfo.title,
     authors: item.volumeInfo.authors,
     coverImage: item.volumeInfo.imageLinks?.thumbnail,
+    description: item.volumeInfo.description,
   }));
   loading.value = false;
 }, 300);
@@ -36,13 +40,17 @@ const handleInput = debounce(async () => {
     <input type="text" v-model="query" @input="handleInput" />
     <div class="loader" v-if="loading"></div>
   </header>
-  <ul class="books">
-    <Book
-      v-for="(book, index) in books"
-      v-bind="book"
-      :key="book.title + index"
-    />
-  </ul>
+  <main>
+    <ul class="books">
+      <Book
+        v-for="(book, index) in books"
+        v-bind="book"
+        :key="book.title + index"
+        @click="selectedBook = book"
+      />
+    </ul>
+    <BookDisplay v-if="selectedBook" v-bind="selectedBook" />
+  </main>
 </template>
 <style lang="scss" scoped>
 header {
@@ -59,6 +67,10 @@ input {
   margin: auto;
   display: block;
   border-radius: 5px;
+}
+main {
+  display: flex;
+  padding: 0 20px;
 }
 .books {
   list-style-type: none;

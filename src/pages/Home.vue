@@ -7,8 +7,8 @@ import BookDisplay from "../components/BookDisplay.vue";
 import InfiniteScrollLoader from "../components/InfiniteScrollLoader.vue";
 import { apiDataToBooks } from "../utils";
 import LoaderLine from "../components/LoaderLine.vue";
+import { API_BASE_URL } from "../constants";
 
-const apiUrl = "https://www.googleapis.com/books/v1/volumes";
 const query = ref("");
 const startIndex = ref(0);
 const totalItems = ref(0);
@@ -20,7 +20,7 @@ const handleInput = debounce(async () => {
   // todo -- may be clean query to avoid &/? etc. if it interfers with filtering etc.
   loading.value = true;
   const data: APIDataInterface = await fetch(
-    `${apiUrl}?q=${encodeURI(query.value)}&startIndex=0&projection=lite`
+    `${API_BASE_URL}?q=${encodeURI(query.value)}&startIndex=0&projection=lite`
   ).then((res) => res.json());
   books.value = apiDataToBooks(data);
   totalItems.value = data.totalItems;
@@ -31,7 +31,7 @@ const handleInput = debounce(async () => {
 const loadMore = debounce(async () => {
   startIndex.value++;
   const data: APIDataInterface = await fetch(
-    `${apiUrl}?q=${encodeURI(query.value)}&startIndex=${
+    `${API_BASE_URL}?q=${encodeURI(query.value)}&startIndex=${
       startIndex.value
     }&projection=lite`
   ).then((res) => res.json());

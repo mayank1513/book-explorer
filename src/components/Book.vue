@@ -28,6 +28,8 @@ defineProps<BookInterface>();
   h2,
   p {
     margin: 0;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
   }
   img {
     height: 100%;

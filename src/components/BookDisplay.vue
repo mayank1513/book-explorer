@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
-import { BookInterface } from "../types";
+import { useBooksStore } from "../store";
 
-defineProps<BookInterface>();
+const bookStore = useBooksStore();
 onMounted(() => {
   if (innerWidth < 800) {
     document.documentElement.style.overflow = "hidden";
@@ -14,15 +14,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section>
-    <div class="close" @click="$emit('close')">❌</div>
-    <h1>{{ title }}</h1>
+  <section v-if="bookStore.selectedBook">
+    <div class="close" @click="bookStore.selectedBook = undefined">❌</div>
+    <h1>{{ bookStore.selectedBook.title }}</h1>
     <h2>
-      <i>By {{ authors?.join(", ") }}</i>
+      <i>By {{ bookStore.selectedBook.authors?.join(", ") }}</i>
     </h2>
     <p>
-      <img v-if="coverImage" :src="coverImage" alt="coverImage" />
-      {{ description }}
+      <img
+        v-if="bookStore.selectedBook.coverImage"
+        :src="bookStore.selectedBook.coverImage"
+        alt="coverImage"
+      />
+      {{ bookStore.selectedBook.description }}
     </p>
   </section>
 </template>

@@ -19,7 +19,7 @@
     "PQUbcBnveN6Sm_yhd2La9": {
       "id": "PQUbcBnveN6Sm_yhd2La9",
       "description": "Implement responsive design to ensure the application works well on both desktop and mobile devices",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "GL2rHDE-R-9wdQPYNJdjj": {
       "id": "GL2rHDE-R-9wdQPYNJdjj",
@@ -29,7 +29,7 @@
     "xivzj7ueoA_ydKmxG1hn6": {
       "id": "xivzj7ueoA_ydKmxG1hn6",
       "description": "Implement pagination for the search results to improve performance and user experience.",
-      "columnId": "column-vLZpQv3nUaXryerHDKVOV"
+      "columnId": "column-doing"
     },
     "UhLte5aM3RwuUmKMijwCQ": {
       "id": "UhLte5aM3RwuUmKMijwCQ",
@@ -44,7 +44,7 @@
     "wxFguBhN5Hg5pSRJp7w3m": {
       "id": "wxFguBhN5Hg5pSRJp7w3m",
       "description": "Explore Google Books API (focus items below)\n- Query \n- pagination\n- Explore the data model returned by the API and the API parameters required",
-      "columnId": "column-todo"
+      "columnId": "column-doing"
     },
     "GG7AsE_XV7fObCBPGpbNe": {
       "id": "GG7AsE_XV7fObCBPGpbNe",
@@ -54,32 +54,31 @@
   },
   "columns": [
     {
+      "id": "column-todo",
+      "title": "To do",
+      "tasksIds": []
+    },
+    {
       "id": "column-vLZpQv3nUaXryerHDKVOV",
       "title": "Bonus",
       "tasksIds": [
-        "xivzj7ueoA_ydKmxG1hn6",
         "UhLte5aM3RwuUmKMijwCQ",
         "jxXKbkh1u-XLCrkMxKf_y"
-      ]
-    },
-    {
-      "id": "column-todo",
-      "title": "To do",
-      "tasksIds": [
-        "wxFguBhN5Hg5pSRJp7w3m"
       ]
     },
     {
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "PQUbcBnveN6Sm_yhd2La9"
+        "xivzj7ueoA_ydKmxG1hn6",
+        "wxFguBhN5Hg5pSRJp7w3m"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "PQUbcBnveN6Sm_yhd2La9",
         "-ECAvKYpZXbESU2d3hX3p",
         "GG7AsE_XV7fObCBPGpbNe",
         "ymRl7POhBRpgPthS9JvxW",

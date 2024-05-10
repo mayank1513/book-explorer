@@ -2,11 +2,16 @@
 import Book from "../components/Book.vue";
 import { ref } from "vue";
 import debounce from "lodash/debounce";
-import { BookInterface } from "../types";
+import { APIDataInterface, BookInterface } from "../types";
 import BookDisplay from "../components/BookDisplay.vue";
+import InfiniteScrollLoader from "../components/InfiniteScrollLoader.vue";
+import { apiDataToBooks } from "../utils";
+import LoaderLine from "../components/LoaderLine.vue";
 
 const apiUrl = "https://www.googleapis.com/books/v1/volumes";
 const query = ref("");
+const startIndex = ref(0);
+const totalItems = ref(0);
 const books = ref<BookInterface[]>([]);
 const selectedBook = ref<BookInterface | undefined>();
 const loading = ref(true);
@@ -14,31 +19,30 @@ const loading = ref(true);
 const handleInput = debounce(async () => {
   // todo -- may be clean query to avoid &/? etc. if it interfers with filtering etc.
   loading.value = true;
-  const data: {
-    items: {
-      volumeInfo: {
-        title: string;
-        authors?: string[];
-        imageLinks?: { thumbnail: string };
-        description: string;
-      };
-    }[];
-  } = await fetch(`${apiUrl}?q=${encodeURI(query.value)}`).then((res) =>
-    res.json()
-  );
-  books.value = data.items.map((item) => ({
-    title: item.volumeInfo.title,
-    authors: item.volumeInfo.authors,
-    coverImage: item.volumeInfo.imageLinks?.thumbnail,
-    description: item.volumeInfo.description,
-  }));
+  const data: APIDataInterface = await fetch(
+    `${apiUrl}?q=${encodeURI(query.value)}&startIndex=0&projection=lite`
+  ).then((res) => res.json());
+  books.value = apiDataToBooks(data);
+  totalItems.value = data.totalItems;
   loading.value = false;
+}, 300);
+
+// Use debounce to be on safer side, e.g., when user keeps srolling top and bottom quickly
+const loadMore = debounce(async () => {
+  startIndex.value++;
+  loading.value = true;
+  const data: APIDataInterface = await fetch(
+    `${apiUrl}?q=${encodeURI(query.value)}&startIndex=${
+      startIndex.value
+    }&projection=lite`
+  ).then((res) => res.json());
+  books.value = books.value.concat(apiDataToBooks(data));
 }, 300);
 </script>
 <template>
   <header>
     <input type="text" v-model="query" @input="handleInput" />
-    <div class="loader" v-if="loading"></div>
+    <LoaderLine v-if="loading" />
   </header>
   <main>
     <ul class="books">
@@ -48,6 +52,7 @@ const handleInput = debounce(async () => {
         :key="book.title + index"
         @click="selectedBook = book"
       />
+      <InfiniteScrollLoader v-if="books.length < totalItems" @load="loadMore" />
     </ul>
     <BookDisplay
       v-if="selectedBook"
@@ -79,33 +84,5 @@ main {
 }
 .books {
   list-style-type: none;
-}
-.loader {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 5px;
-  filter: blur(4px);
-  background: linear-gradient(
-    to right,
-    violet,
-    indigo,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-  );
-  background-size: 200%;
-  animation: loading 1s infinite linear alternate;
-}
-@keyframes loading {
-  from {
-    background-position: 0% 0%;
-  }
-  to {
-    background-position: 100% 0%;
-  }
 }
 </style>

@@ -1,11 +1,72 @@
 {
   "scope": "Workspace",
-  "tasks": {},
+  "tasks": {
+    "KE5Ck2RObVyXOFhFPSn_j": {
+      "id": "KE5Ck2RObVyXOFhFPSn_j",
+      "description": "Implement a search input field where users can enter their search query",
+      "columnId": "column-todo"
+    },
+    "ymRl7POhBRpgPthS9JvxW": {
+      "id": "ymRl7POhBRpgPthS9JvxW",
+      "description": "Display the search results as a list of books, showing at least \n- the book title, \n- author(s), and \n- cover image.",
+      "columnId": "column-todo"
+    },
+    "-ECAvKYpZXbESU2d3hX3p": {
+      "id": "-ECAvKYpZXbESU2d3hX3p",
+      "description": "Allow users to click on a book to view more details, \n- including the book's description and \n- additional information.\n",
+      "columnId": "column-todo"
+    },
+    "PQUbcBnveN6Sm_yhd2La9": {
+      "id": "PQUbcBnveN6Sm_yhd2La9",
+      "description": "Implement responsive design to ensure the application works well on both desktop and mobile devices",
+      "columnId": "column-todo"
+    },
+    "GL2rHDE-R-9wdQPYNJdjj": {
+      "id": "GL2rHDE-R-9wdQPYNJdjj",
+      "description": "-- Already IN the DNA -- Write clean, well-structured code with comments where necessary.",
+      "columnId": "column-done"
+    },
+    "xivzj7ueoA_ydKmxG1hn6": {
+      "id": "xivzj7ueoA_ydKmxG1hn6",
+      "description": "Implement pagination for the search results to improve performance and user experience.",
+      "columnId": "column-vLZpQv3nUaXryerHDKVOV"
+    },
+    "UhLte5aM3RwuUmKMijwCQ": {
+      "id": "UhLte5aM3RwuUmKMijwCQ",
+      "description": "Add filtering options to allow users to refine their search results by category, author, or other criteria.",
+      "columnId": "column-vLZpQv3nUaXryerHDKVOV"
+    },
+    "jxXKbkh1u-XLCrkMxKf_y": {
+      "id": "jxXKbkh1u-XLCrkMxKf_y",
+      "description": "Add unit tests to ensure the reliability and functionality of your code.\n",
+      "columnId": "column-vLZpQv3nUaXryerHDKVOV"
+    },
+    "wxFguBhN5Hg5pSRJp7w3m": {
+      "id": "wxFguBhN5Hg5pSRJp7w3m",
+      "description": "Explore Google Books API (focus items below)\n- Query \n- pagination\n- Explore the data model returned by the API and the API parameters required",
+      "columnId": "column-todo"
+    }
+  },
   "columns": [
+    {
+      "id": "column-vLZpQv3nUaXryerHDKVOV",
+      "title": "Bonus",
+      "tasksIds": [
+        "xivzj7ueoA_ydKmxG1hn6",
+        "UhLte5aM3RwuUmKMijwCQ",
+        "jxXKbkh1u-XLCrkMxKf_y"
+      ]
+    },
     {
       "id": "column-todo",
       "title": "To do",
-      "tasksIds": []
+      "tasksIds": [
+        "wxFguBhN5Hg5pSRJp7w3m",
+        "KE5Ck2RObVyXOFhFPSn_j",
+        "ymRl7POhBRpgPthS9JvxW",
+        "-ECAvKYpZXbESU2d3hX3p",
+        "PQUbcBnveN6Sm_yhd2La9"
+      ]
     },
     {
       "id": "column-doing",
@@ -15,7 +76,9 @@
     {
       "id": "column-done",
       "title": "Done",
-      "tasksIds": []
+      "tasksIds": [
+        "GL2rHDE-R-9wdQPYNJdjj"
+      ]
     }
   ]
 }

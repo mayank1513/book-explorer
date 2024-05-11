@@ -16,7 +16,9 @@ const bookStore = useBooksStore();
       @input="bookStore.loadBooks"
       placeholder="Search books - Powered by Google Books API"
     />
-    <strong @click="filtersVisible = !filtersVisible">⚙</strong>
+    <strong @click="filtersVisible = !filtersVisible" title="Advanced Search"
+      >⚙</strong
+    >
     <div class="filters" v-if="filtersVisible">
       <label v-for="filter in FILTERS" :for="filter">
         {{ filter.replace(/^in/, "").toUpperCase() }}:

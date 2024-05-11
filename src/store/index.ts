@@ -16,7 +16,6 @@ export const useBooksStore = defineStore("book-store", () => {
   const intitle = ref("");
   const inauthor = ref("");
   const inpublisher = ref("");
-  const subject = ref("");
 
   async function retriveBooks() {
     const combinedQueryString = [
@@ -24,7 +23,6 @@ export const useBooksStore = defineStore("book-store", () => {
       intitle.value ? `intitle:${intitle.value}` : "",
       inauthor.value ? `inauthor:${inauthor.value}` : "",
       inpublisher.value ? `inpublisher:${inpublisher.value}` : "",
-      subject.value ? `subject:${subject.value}` : "",
     ]
       .filter(Boolean)
       .join("+");
@@ -69,6 +67,5 @@ export const useBooksStore = defineStore("book-store", () => {
     inauthor,
     intitle,
     inpublisher,
-    subject,
   };
 });

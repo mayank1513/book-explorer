@@ -8,6 +8,9 @@ export default mergeConfig(
     test: {
       environment: "jsdom",
       root: fileURLToPath(new URL("./", import.meta.url)),
+      coverage: {
+        exclude: ["src/App.vue", "src/main.ts"],
+      },
     },
   })
 );

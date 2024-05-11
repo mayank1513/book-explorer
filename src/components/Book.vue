@@ -10,6 +10,9 @@ defineProps<BookInterface>();
       <p>
         <i>By {{ authors?.join(", ") }}</i>
       </p>
+      <small v-if="publisher"
+        >A <i>{{ publisher }}</i> publication</small
+      >
     </div>
   </li>
 </template>
@@ -37,6 +40,11 @@ defineProps<BookInterface>();
     height: 100%;
     width: 70px;
     object-fit: cover;
+  }
+  small {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 0.7rem;
   }
   & > div {
     width: calc(100% - 80px);

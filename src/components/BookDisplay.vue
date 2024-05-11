@@ -24,6 +24,8 @@ onUnmounted(() => {
       <img v-if="coverImage" :src="coverImage" alt="coverImage" />
       {{ description }}
     </p>
+    <br />
+    <p v-if="publisher">Published by {{ publisher }}</p>
   </section>
 </template>
 
@@ -39,6 +41,9 @@ section {
   background: var(--bg-color);
   pointer-events: all;
   overflow: auto;
+}
+h1 {
+  text-align: start;
 }
 img {
   float: right;

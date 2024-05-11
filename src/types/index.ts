@@ -3,6 +3,7 @@ export interface BookInterface {
   authors?: string[];
   coverImage?: string;
   description?: string;
+  publisher?: string;
 }
 
 export interface APIDataInterface {
@@ -12,7 +13,8 @@ export interface APIDataInterface {
       title: string;
       authors?: string[];
       imageLinks?: { thumbnail: string };
-      description: string;
+      description?: string;
+      publisher?: string;
     };
   }[];
 }

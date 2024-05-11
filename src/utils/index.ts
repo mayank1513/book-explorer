@@ -6,5 +6,6 @@ export function apiDataToBooks(data: APIDataInterface): BookInterface[] {
     authors: item.volumeInfo.authors,
     coverImage: item.volumeInfo.imageLinks?.thumbnail,
     description: item.volumeInfo.description,
+    publisher: item.volumeInfo.publisher,
   }));
 }

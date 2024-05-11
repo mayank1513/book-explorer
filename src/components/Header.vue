@@ -10,7 +10,12 @@ const bookStore = useBooksStore();
 </script>
 <template>
   <header>
-    <input type="text" v-model="bookStore.query" @input="bookStore.loadBooks" />
+    <input
+      type="text"
+      v-model="bookStore.query"
+      @input="bookStore.loadBooks"
+      placeholder="Search books - Powered by Google Books API"
+    />
     <strong @click="filtersVisible = !filtersVisible">⚙</strong>
     <div class="filters" v-if="filtersVisible">
       <label v-for="filter in FILTERS" :for="filter">
@@ -19,6 +24,7 @@ const bookStore = useBooksStore();
           type="text"
           :id="filter"
           :key="filter"
+          :placeholder="`Search in ${filter.replace(/^in/, '')}`"
           v-model="bookStore[filter as FilterType]"
           @input="bookStore.loadBooks"
         />

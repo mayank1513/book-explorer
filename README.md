@@ -31,6 +31,10 @@ pnpm test
 
 - Install recommended VSCode extensions, especially Trello Kanban Board.
 
+## Implementation of required and bonus features
+
+> Implemented all required and bonus features.
+
 ## Highlights
 
 1. Code Reuse: Promotes cleanliness, readability, and maintainability.
@@ -48,3 +52,8 @@ pnpm test
 2. Implement Book Preview: Enhance user experience with book previews.
 3. Utilize Vue Router: Implement dynamic routing for `isbn/[isbn]` paths.
 4. Add more unit tests
+
+> <img src="https://github.com/react18-tools/turborepo-template/blob/main/popper.png?raw=true" style="height: 20px"/> Please consider enrolling in [our courses](https://mayank-chaudhari.vercel.app/courses) or [sponsoring](https://github.com/sponsors/mayank1513) our work.
+
+<hr />
+<p align="center" style="text-align:center">with 💖 by <a href="https://mayank-chaudhari.vercel.app" target="_blank">Mayank Kumar Chaudhari</a></p>
